@@ -1,35 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  /* Climato sky-blue/white theme — an explicit, approved departure from the
-     Faircode ink/canvas system for this landing page only (2026-07-27), to
-     match the mood of the actual app screenshots rather than Faircode's dark
-     corporate palette. Faircode's own hex values are reused where possible. */
-  --sky-light: #8ed0fa;
-  --sky-deep: #009dfd;
-  --gradient-sky: linear-gradient(180deg, var(--sky-light) 0%, var(--sky-deep) 100%);
+  /* Climato Brand Guidelines v1.0 (2026) — colors sampled directly from the
+     shipped app icon and screens (Skye, the sky-blue hero, the indigo
+     assistant gradient). This is Climato's own identity, not Faircode's
+     Ink/Canvas/Current system — see .project-docs/brand/. */
+  --background: #ffffff; /* Cloud White — page canvas */
+  --foreground: #0b2a45; /* Climato Ink — headlines & body on light */
+  --muted: #4f6478;
+  --muted-light: #7c8fa1;
 
-  --background: #ffffff;
-  --foreground: #141922;
-  --muted: #5a6472;
-  --muted-light: #8a94a6;
+  --surface: #eff0f4; /* Cloud Grey — card fill / alternating section band */
+  --surface-foreground: #0b2a45;
+  --surface-border: #dbe2ec;
+  --border: #dbe2ec;
 
-  --surface: #eaf6ff;
-  --surface-foreground: #141922;
-  --surface-border: #d6ecfb;
-  --border: #e2e8f0;
+  --sky: #57a9f5; /* Sky Blue — primary brand color, hero + primary CTA */
+  --navy: #002c47; /* Deep Navy — selected states, active pills */
+  --periwinkle: #7084db; /* mascot backdrop, soft secondary surfaces */
+  --charcoal: #414141; /* secondary dark card (explore/location CTAs) */
+  --gold: #f0b94d; /* delight accent — UV, sparkle, ratings */
+  --info-text: #1d6fc7; /* accessible sky-blue for text use — bright Sky is graphics/hero only */
 
-  --brand-blue: #009dfd;
-  --brand-green: #25f7a2;
-  --gradient-current: linear-gradient(100deg, #25f7a2, #009dfd);
-
-  /* Data-viz / illustration only — never UI chrome */
-  --dataviz-lagoon: #0fb5ae;
-  --dataviz-sky: #5ac8fa;
-  --dataviz-sprout: #4cc38a;
-  --dataviz-marigold: #f5a623;
-  --dataviz-coral: #ff6b5e;
-  --dataviz-iris: #7a5af8;
+  --gradient-skye: linear-gradient(135deg, #604fbf, #2a2a65); /* signature — AI/assistant moments only, spend once per screen */
+  --gradient-sky: linear-gradient(180deg, #7ec4f8, #57a9f5);
 }
 
 @theme inline {
@@ -42,55 +36,49 @@
   --color-surface-border: var(--surface-border);
   --color-border: var(--border);
 
-  --color-brand-blue: var(--brand-blue);
-  --color-brand-green: var(--brand-green);
-  --color-sky-light: var(--sky-light);
-  --color-sky-deep: var(--sky-deep);
+  --color-sky: var(--sky);
+  --color-navy: var(--navy);
+  --color-periwinkle: var(--periwinkle);
+  --color-charcoal: var(--charcoal);
+  --color-gold: var(--gold);
+  --color-info-text: var(--info-text);
 
-  --color-dataviz-lagoon: var(--dataviz-lagoon);
-  --color-dataviz-sky: var(--dataviz-sky);
-  --color-dataviz-sprout: var(--dataviz-sprout);
-  --color-dataviz-marigold: var(--dataviz-marigold);
-  --color-dataviz-coral: var(--dataviz-coral);
-  --color-dataviz-iris: var(--dataviz-iris);
-
-  --font-sans: var(--font-inter);
-  --font-heading: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-nunito);
+  --font-heading: var(--font-baloo);
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  font-family: var(--font-nunito), Arial, Helvetica, sans-serif;
   font-weight: 400;
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
-/* Geist carries the voice from H3 up to display; per-level weight/tracking is set
-   where each heading is used (Display 700/-0.03em, H1 700/-0.022em, H2 600/-0.02em,
-   H3 600/-0.015em), per Faircode Brand Guidelines v1.0 (2026) §05 Typography. */
+/* Baloo 2 carries the voice from H3 up to display — rounded and warm,
+   echoing Skye. Per Climato Brand Guidelines v1.0 §05 Typography. */
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-geist-sans), sans-serif;
+  font-family: var(--font-baloo), sans-serif;
 }
 
 .bg-gradient-sky {
   background-image: var(--gradient-sky);
 }
 
-/* Kept for any future Faircode-brand-compliant surface; unused on this
-   sky-blue/white repaint since the Current gradient reads green, not sky. */
-.bg-gradient-current {
-  background-image: var(--gradient-current);
+/* The Skye Gradient — reserved for AI-assistant touchpoints. Spend it once
+   per section: a callout, one CTA, one accent. Never a full wallpaper. */
+.bg-gradient-skye {
+  background-image: var(--gradient-skye);
 }
 
-.text-gradient-current {
-  background-image: var(--gradient-current);
+.text-gradient-skye {
+  background-image: var(--gradient-skye);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;

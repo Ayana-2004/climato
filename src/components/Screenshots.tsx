@@ -25,8 +25,12 @@ const SCREENSHOTS = [
 
 export default function Screenshots() {
   return (
-    <section className="bg-surface py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-6">
+    <section id="app" className="relative scroll-mt-20 overflow-hidden bg-surface py-20 sm:py-28">
+      <div className="pointer-events-none absolute inset-0">
+        <div className="absolute -top-24 left-[8%] h-72 w-72 rounded-full bg-sky/10 blur-3xl" />
+        <div className="absolute bottom-[-4rem] right-[10%] h-80 w-80 rounded-full bg-periwinkle/10 blur-3xl" />
+      </div>
+      <div className="relative mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-semibold tracking-[-0.02em] text-surface-foreground sm:text-4xl">
             A look inside the app
@@ -40,7 +44,7 @@ export default function Screenshots() {
           {SCREENSHOTS.map((shot) => (
             <div
               key={shot.src}
-              className="relative mx-auto aspect-[738/1600] w-full max-w-[200px] overflow-hidden rounded-2xl border border-surface-border shadow-lg"
+              className="relative mx-auto aspect-[738/1600] w-full max-w-[200px] overflow-hidden rounded-2xl border-[6px] border-white shadow-lg ring-1 ring-border"
             >
               <Image
                 src={shot.src}

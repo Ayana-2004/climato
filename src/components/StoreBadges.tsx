@@ -35,7 +35,7 @@ export default function StoreBadges({ className = "" }: { className?: string }) 
         href={PLAY_STORE_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center gap-2 rounded-xl border border-white bg-white px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-sky-deep"
+        className="flex items-center justify-center gap-2 rounded-xl border border-border bg-white px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-sky"
       >
         <PlayIcon />
         <span>
