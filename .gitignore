@@ -12,6 +12,11 @@
 
 # testing
 /coverage
+/test-results
+/playwright-report
+
+# internal reference docs, not for the repo
+/.project-docs
 
 # next.js
 /.next/
