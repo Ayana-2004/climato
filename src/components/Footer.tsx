@@ -12,10 +12,12 @@ export default function Footer() {
             Weather that guides you, not just data.
           </p>
           <a
-            href="mailto:hello@faircodetech.com"
+            href="https://www.faircodetech.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-3 inline-block text-sm text-muted underline-offset-4 hover:text-foreground hover:underline"
           >
-            hello@faircodetech.com
+            www.faircodetech.com
           </a>
         </div>
         <StoreBadges />

@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import WhyClimato from "@/components/WhyClimato";
 import Features from "@/components/Features";
 import Screenshots from "@/components/Screenshots";
+import AboutApp from "@/components/AboutApp";
 import FaircodeInitiative from "@/components/FaircodeInitiative";
 import Footer from "@/components/Footer";
 
@@ -15,6 +16,7 @@ export default function Home() {
         <WhyClimato />
         <Features />
         <Screenshots />
+        <AboutApp />
         <FaircodeInitiative />
       </main>
       <Footer />
