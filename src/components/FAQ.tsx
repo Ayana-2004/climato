@@ -1,0 +1,52 @@
+const FAQS = [
+  {
+    q: "Is Climato free to download?",
+    a: "Yes. Climato is free on both the App Store and Google Play.",
+  },
+  {
+    q: "What is Skye?",
+    a: "Skye is Climato's built-in AI Weather Assistant. Ask it plain-language questions — like whether to carry a jacket, or what a visibility reading means for driving — and it answers in plain language back, using the live forecast for your location.",
+  },
+  {
+    q: "Can I check weather for a city I don't live in?",
+    a: "Yes. Search Any City lets you pull up live forecasts for any city or town in the world, not just your current location.",
+  },
+  {
+    q: "What does Nearby Explorer do?",
+    a: "It shows weather at the specific places you're headed — a workplace, a stadium, a meeting across town — with distance and walk time to each, so the forecast isn't limited to your home city.",
+  },
+  {
+    q: "Which platforms does Climato run on?",
+    a: "iOS and Android, available through the App Store and Google Play.",
+  },
+];
+
+export default function FAQ() {
+  return (
+    <section id="faq" className="scroll-mt-20 bg-surface px-6 py-20 sm:py-28">
+      <div className="mx-auto max-w-3xl">
+        <h2 className="text-center text-3xl font-semibold tracking-[-0.02em] text-surface-foreground sm:text-4xl">
+          Frequently asked questions
+        </h2>
+        <div className="mt-12 divide-y divide-surface-border">
+          {FAQS.map((item) => (
+            <details key={item.q} className="group py-5">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-surface-foreground marker:content-none">
+                {item.q}
+                <span
+                  aria-hidden="true"
+                  className="shrink-0 text-xl text-muted-light transition-transform group-open:rotate-45"
+                >
+                  +
+                </span>
+              </summary>
+              <p className="mt-3 text-sm leading-[1.55] text-muted">
+                {item.a}
+              </p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

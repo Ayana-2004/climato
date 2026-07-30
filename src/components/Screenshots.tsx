@@ -4,22 +4,22 @@ const SCREENSHOTS = [
   {
     src: "/IMG-20260721-WA0019.jpg",
     alt: "Climato home screen showing Kochi weather, 30°C and cloudy",
-  },
-  {
-    src: "/IMG-20260721-WA0023.jpg",
-    alt: "Climato weather screen for Odisha showing rain, 24°C",
+    caption: "Live local weather",
   },
   {
     src: "/IMG-20260721-WA0020.jpg",
     alt: "Climato hourly forecast with AI Weather Chat and Nearby Explorer entry points",
+    caption: "Hourly forecast",
   },
   {
     src: "/IMG-20260721-WA0021.jpg",
     alt: "Climato weather detail view with UV index and visibility",
+    caption: "UV & visibility detail",
   },
   {
     src: "/IMG-20260721-WA0022.jpg",
     alt: "Climato Nearby Explorer showing a map of nearby locations",
+    caption: "Nearby Explorer",
   },
 ];
 
@@ -40,19 +40,21 @@ export default function Screenshots() {
             and Nearby Explorer.
           </p>
         </div>
-        <div className="mt-14 grid grid-cols-2 gap-6 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="mt-14 flex flex-wrap justify-center gap-x-8 gap-y-10">
           {SCREENSHOTS.map((shot) => (
-            <div
-              key={shot.src}
-              className="relative mx-auto aspect-[738/1600] w-full max-w-[200px] overflow-hidden rounded-2xl border-[6px] border-white shadow-lg ring-1 ring-border"
-            >
-              <Image
-                src={shot.src}
-                alt={shot.alt}
-                fill
-                sizes="(min-width: 1024px) 200px, (min-width: 640px) 33vw, 50vw"
-                className="object-cover"
-              />
+            <div key={shot.src} className="w-36 shrink-0 text-center sm:w-44">
+              <div className="relative aspect-[738/1600] w-full overflow-hidden rounded-2xl border-[6px] border-white shadow-lg ring-1 ring-border">
+                <Image
+                  src={shot.src}
+                  alt={shot.alt}
+                  fill
+                  sizes="(min-width: 640px) 176px, 144px"
+                  className="object-cover"
+                />
+              </div>
+              <p className="mt-3 text-sm font-medium text-muted-light">
+                {shot.caption}
+              </p>
             </div>
           ))}
         </div>

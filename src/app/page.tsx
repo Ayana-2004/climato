@@ -3,9 +3,11 @@ import Hero from "@/components/Hero";
 import WhyClimato from "@/components/WhyClimato";
 import Features from "@/components/Features";
 import Screenshots from "@/components/Screenshots";
-import AboutApp from "@/components/AboutApp";
+import MeetSkye from "@/components/MeetSkye";
+import FAQ from "@/components/FAQ";
 import FaircodeInitiative from "@/components/FaircodeInitiative";
 import Footer from "@/components/Footer";
+import StickyDownloadBar from "@/components/StickyDownloadBar";
 
 export default function Home() {
   return (
@@ -16,10 +18,12 @@ export default function Home() {
         <WhyClimato />
         <Features />
         <Screenshots />
-        <AboutApp />
+        <MeetSkye />
+        <FAQ />
         <FaircodeInitiative />
       </main>
       <Footer />
+      <StickyDownloadBar />
     </div>
   );
 }

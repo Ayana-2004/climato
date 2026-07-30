@@ -6,7 +6,9 @@ import Image from "next/image";
 const NAV_LINKS = [
   { href: "#why", label: "Why Climato" },
   { href: "#features", label: "Features" },
-  { href: "#app", label: "Inside the App" },
+  { href: "#app", label: "Screens" },
+  { href: "#skye", label: "Meet Skye" },
+  { href: "#faq", label: "FAQ" },
   { href: "#about", label: "About" },
 ];
 
@@ -29,7 +31,7 @@ export default function Header() {
           </span>
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-5 lg:gap-8 md:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
