@@ -1,10 +1,15 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 
-export const runtime = "edge";
+export const alt = "Climato — Weather that guides you";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default async function Image() {
+  const logoData = await readFile(join(process.cwd(), "src/app/icon.png"), "base64");
+  const logoSrc = `data:image/png;base64,${logoData}`;
+
   return new ImageResponse(
     (
       <div
@@ -26,14 +31,13 @@ export default async function Image() {
             gap: 20,
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              width: 84,
-              height: 84,
-              borderRadius: 28,
-              background: "rgba(255,255,255,0.22)",
-            }}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={logoSrc}
+            alt=""
+            width={96}
+            height={96}
+            style={{ borderRadius: 28 }}
           />
           <div style={{ fontSize: 76, fontWeight: 700, color: "white" }}>
             Climato
