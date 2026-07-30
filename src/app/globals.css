@@ -83,3 +83,69 @@ h6 {
   -webkit-background-clip: text;
   color: transparent;
 }
+
+/* Clouds travel the full width of the hero and loop while off-screen on
+   both ends, so the wrap is never visible. */
+@keyframes cloud-drift-right {
+  from {
+    transform: translateX(-25vw);
+  }
+  to {
+    transform: translateX(125vw);
+  }
+}
+@keyframes cloud-drift-left {
+  from {
+    transform: translateX(125vw);
+  }
+  to {
+    transform: translateX(-25vw);
+  }
+}
+
+@keyframes rain-fall {
+  0% {
+    opacity: 0.85;
+    transform: translateY(0) scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(44px) scaleY(1.5);
+  }
+}
+
+.animate-cloud-1 {
+  animation: cloud-drift-right 46s linear infinite;
+  animation-delay: -6s;
+}
+.animate-cloud-2 {
+  animation: cloud-drift-left 60s linear infinite;
+  animation-delay: -22s;
+}
+.animate-cloud-3 {
+  animation: cloud-drift-right 38s linear infinite;
+  animation-delay: -14s;
+}
+.animate-cloud-4 {
+  animation: cloud-drift-left 70s linear infinite;
+  animation-delay: -40s;
+}
+.animate-cloud-5 {
+  animation: cloud-drift-right 54s linear infinite;
+  animation-delay: -30s;
+}
+.animate-cloud-6 {
+  animation: cloud-drift-left 44s linear infinite;
+  animation-delay: -8s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-cloud-1,
+  .animate-cloud-2,
+  .animate-cloud-3,
+  .animate-cloud-4,
+  .animate-cloud-5,
+  .animate-cloud-6 {
+    animation: none;
+  }
+}

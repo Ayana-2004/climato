@@ -1,5 +1,7 @@
 import Image from "next/image";
 import StoreBadges from "./StoreBadges";
+import TiltCard from "./TiltCard";
+import RainCursor from "./RainCursor";
 
 function CloudShape({ className }: { className?: string }) {
   return (
@@ -20,10 +22,14 @@ export default function Hero() {
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-32 left-1/4 h-96 w-96 rounded-full bg-white/20 blur-3xl" />
         <div className="absolute top-1/3 -right-16 h-72 w-72 rounded-full bg-periwinkle/40 blur-3xl" />
-        <CloudShape className="absolute top-16 left-[8%] h-20 w-32 text-white/30 sm:h-28 sm:w-44" />
-        <CloudShape className="absolute bottom-10 left-[38%] h-16 w-28 text-white/20 sm:h-20 sm:w-36" />
-        <CloudShape className="absolute top-1/2 right-[6%] hidden h-24 w-40 text-white/20 lg:block" />
+        <CloudShape className="animate-cloud-1 absolute top-12 h-16 w-28 text-white/30 sm:h-20 sm:w-32" />
+        <CloudShape className="animate-cloud-2 absolute top-1/3 h-14 w-24 text-white/20 sm:h-16 sm:w-28" />
+        <CloudShape className="animate-cloud-3 absolute top-24 hidden h-24 w-40 text-white/20 sm:block" />
+        <CloudShape className="animate-cloud-4 absolute bottom-20 h-16 w-28 text-white/25 sm:h-20 sm:w-32" />
+        <CloudShape className="animate-cloud-5 absolute bottom-8 hidden h-28 w-48 text-white/15 lg:block" />
+        <CloudShape className="animate-cloud-6 absolute top-1/2 h-12 w-20 text-white/20" />
       </div>
+      <RainCursor />
       <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-12 px-6 py-20 sm:py-28 lg:flex-row lg:justify-between">
         <div className="max-w-xl text-center lg:text-left">
           <span className="mb-5 inline-block text-xs font-bold uppercase tracking-[0.14em] text-white/80">
@@ -41,7 +47,7 @@ export default function Hero() {
             <StoreBadges className="mt-8 justify-center lg:justify-start" />
           </div>
         </div>
-        <div className="relative shrink-0">
+        <TiltCard className="relative shrink-0">
           <div className="relative aspect-[738/1600] w-64 overflow-hidden rounded-[2.5rem] border-8 border-white shadow-2xl">
             <Image
               src="/IMG-20260721-WA0019.jpg"
@@ -58,7 +64,7 @@ export default function Hero() {
               Skye: Carry an umbrella today
             </span>
           </div>
-        </div>
+        </TiltCard>
       </div>
     </section>
   );

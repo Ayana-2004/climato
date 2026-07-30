@@ -1,25 +1,26 @@
 import Image from "next/image";
+import TiltCard from "./TiltCard";
 
 const SCREENSHOTS = [
   {
-    src: "/IMG-20260721-WA0019.jpg",
-    alt: "Climato home screen showing Kochi weather, 30°C and cloudy",
-    caption: "Live local weather",
+    src: "/climato-promo-01.png",
+    alt: "Climato friendly notification: Skye telling John a drizzle can take a holiday",
   },
   {
-    src: "/IMG-20260721-WA0020.jpg",
-    alt: "Climato hourly forecast with AI Weather Chat and Nearby Explorer entry points",
-    caption: "Hourly forecast",
+    src: "/climato-promo-02.png",
+    alt: "Climato witty, conversational chat with Skye about today's rain",
   },
   {
-    src: "/IMG-20260721-WA0021.jpg",
-    alt: "Climato weather detail view with UV index and visibility",
-    caption: "UV & visibility detail",
+    src: "/climato-promo-03.png",
+    alt: "Climato advanced feature: exploring weather at nearby spots on a map",
   },
   {
-    src: "/IMG-20260721-WA0022.jpg",
-    alt: "Climato Nearby Explorer showing a map of nearby locations",
-    caption: "Nearby Explorer",
+    src: "/climato-promo-04.png",
+    alt: "Climato manage locations screen for chasing weather across cities",
+  },
+  {
+    src: "/climato-promo-05.png",
+    alt: "Climato future weather forecast for Gujarat and California",
   },
 ];
 
@@ -36,26 +37,24 @@ export default function Screenshots() {
             A look inside the app
           </h2>
           <p className="mt-4 text-lg leading-[1.55] text-muted-light">
-            Real screens from Climato — live weather, the AI Weather Assistant,
-            and Nearby Explorer.
+            Live weather, the AI Weather Assistant, and Nearby Explorer —
+            wrapped in Climato&apos;s own personality. Move your cursor over a
+            screen.
           </p>
         </div>
-        <div className="mt-14 flex flex-wrap justify-center gap-x-8 gap-y-10">
+        <div className="mt-14 flex flex-wrap justify-center gap-4 sm:grid sm:grid-cols-3 sm:gap-6 lg:grid-cols-5">
           {SCREENSHOTS.map((shot) => (
-            <div key={shot.src} className="w-36 shrink-0 text-center sm:w-44">
-              <div className="relative aspect-[738/1600] w-full overflow-hidden rounded-2xl border-[6px] border-white shadow-lg ring-1 ring-border">
+            <TiltCard key={shot.src} className="w-[calc(50%-0.5rem)] sm:w-full">
+              <div className="relative aspect-[1512/2688] w-full overflow-hidden rounded-3xl shadow-xl ring-1 ring-border">
                 <Image
                   src={shot.src}
                   alt={shot.alt}
                   fill
-                  sizes="(min-width: 640px) 176px, 144px"
+                  sizes="(min-width: 1024px) 200px, (min-width: 640px) 33vw, 50vw"
                   className="object-cover"
                 />
               </div>
-              <p className="mt-3 text-sm font-medium text-muted-light">
-                {shot.caption}
-              </p>
-            </div>
+            </TiltCard>
           ))}
         </div>
       </div>
