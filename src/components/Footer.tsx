@@ -1,3 +1,4 @@
+import Link from "next/link";
 import StoreBadges from "./StoreBadges";
 
 export default function Footer() {
@@ -28,12 +29,12 @@ export default function Footer() {
           product.
         </p>
         <div className="flex items-center gap-4 text-xs text-muted-light">
-          <a href="/privacy" className="hover:text-foreground hover:underline">
+          <Link href="/privacy" className="hover:text-foreground hover:underline">
             Privacy Policy
-          </a>
-          <a href="/terms" className="hover:text-foreground hover:underline">
+          </Link>
+          <Link href="/terms" className="hover:text-foreground hover:underline">
             Terms of Service
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

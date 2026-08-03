@@ -2,14 +2,15 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const NAV_LINKS = [
-  { href: "#why", label: "Why Climato" },
-  { href: "#features", label: "Features" },
-  { href: "#app", label: "Screens" },
-  { href: "#skye", label: "Meet Skye" },
-  { href: "#faq", label: "FAQ" },
-  { href: "#about", label: "About" },
+  { href: "/#why", label: "Why Climato" },
+  { href: "/#features", label: "Features" },
+  { href: "/#app", label: "Screens" },
+  { href: "/#skye", label: "Meet Skye" },
+  { href: "/#faq", label: "FAQ" },
+  { href: "/#about", label: "About" },
 ];
 
 export default function Header() {
@@ -18,7 +19,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-8">
-        <a href="#hero" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+        <Link href="/#hero" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <Image
             src="/climato-icon.png"
             alt="Climato"
@@ -29,26 +30,26 @@ export default function Header() {
           <span className="font-heading text-xl font-bold tracking-[-0.02em] text-foreground">
             Climato
           </span>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-5 lg:gap-8 md:flex">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="text-sm font-semibold text-muted transition-colors hover:text-foreground"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
-        <a
-          href="#download"
+        <Link
+          href="/#download"
           className="hidden rounded-xl bg-sky px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90 md:inline-flex"
         >
           Get the App
-        </a>
+        </Link>
 
         <button
           type="button"
@@ -72,22 +73,22 @@ export default function Header() {
       {open && (
         <nav className="flex flex-col gap-1 border-t border-border px-6 py-4 md:hidden">
           {NAV_LINKS.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
               className="rounded-lg px-3 py-2.5 text-sm font-semibold text-muted hover:bg-surface hover:text-foreground"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
-          <a
-            href="#download"
+          <Link
+            href="/#download"
             onClick={() => setOpen(false)}
             className="mt-2 rounded-xl bg-sky px-4 py-2.5 text-center text-sm font-semibold text-white"
           >
             Get the App
-          </a>
+          </Link>
         </nav>
       )}
     </header>
