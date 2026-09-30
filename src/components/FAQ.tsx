@@ -1,11 +1,15 @@
 const FAQS = [
   {
-    q: "Is Climato free to download?",
-    a: "Yes. Climato is free on both the App Store and Google Play.",
+    q: "What is Climato?",
+    a: "Climato is a weather app that blends live forecast data, local conditions, and a conversational AI assistant so you can understand the weather and act on it quickly.",
   },
   {
-    q: "What is Skye?",
-    a: "Skye is Climato's built-in AI Weather Assistant. Ask it plain-language questions — like whether to carry a jacket, or what a visibility reading means for driving — and it answers in plain language back, using the live forecast for your location.",
+    q: "How does Skye help with weather?",
+    a: "Skye is Climato's built-in AI Weather Assistant. Ask it plain-language questions — like whether to carry a jacket, or what a visibility reading means for driving — and it answers using the live forecast for your location.",
+  },
+  {
+    q: "Is Climato free to download?",
+    a: "Yes. Climato is free on both the App Store and Google Play.",
   },
   {
     q: "Can I check weather for a city I don't live in?",
@@ -21,9 +25,28 @@ const FAQS = [
   },
 ];
 
+const FAQ_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: item.a,
+    },
+  })),
+};
+
 export default function FAQ() {
   return (
     <section id="faq" className="scroll-mt-20 bg-surface px-6 py-20 sm:py-28">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(FAQ_JSON_LD).replace(/</g, "\\u003c"),
+        }}
+      />
       <div className="mx-auto max-w-3xl">
         <h2 className="text-center text-3xl font-semibold tracking-[-0.02em] text-surface-foreground sm:text-4xl">
           Frequently asked questions

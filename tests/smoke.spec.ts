@@ -36,6 +36,32 @@ test.describe("Climato landing page", () => {
     await expect(playStoreLink).toHaveAttribute("target", "_blank");
   });
 
+  test("includes answer-focused FAQ content and FAQ schema", async ({ page }) => {
+    await page.goto("/");
+
+    await expect(page.getByRole("heading", { name: "What is Climato?" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "How does Skye help with weather?" })).toBeVisible();
+
+    const faqSchema = await page.locator('script[type="application/ld+json"]').evaluateAll((nodes) =>
+      nodes.map((node) => {
+        const raw = node.textContent || "{}";
+        try {
+          return JSON.parse(raw);
+        } catch {
+          return {};
+        }
+      })
+    );
+
+    expect(
+      faqSchema.some(
+        (script) =>
+          script["@type"] === "FAQPage" ||
+          (script["@graph"] || []).some((item: any) => item["@type"] === "FAQPage")
+      )
+    ).toBeTruthy();
+  });
+
   test("renders correctly on a mobile viewport", async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/");

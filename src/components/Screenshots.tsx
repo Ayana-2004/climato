@@ -34,7 +34,7 @@ export default function Screenshots() {
       <div className="relative mx-auto max-w-6xl px-6">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-semibold tracking-[-0.02em] text-surface-foreground sm:text-4xl">
-            A look inside the app
+            A look inside Climato
           </h2>
           <p className="mt-4 text-lg leading-[1.55] text-muted-light">
             Live weather, the AI Weather Assistant, and Nearby Explorer —
