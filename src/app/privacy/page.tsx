@@ -3,9 +3,21 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Climato",
+  title: "Privacy Policy | Climato",
   description:
     "How Climato collects, uses, and protects your data, including location, search history, and conversations with Skye.",
+  alternates: {
+    canonical: "/privacy",
+  },
+  openGraph: {
+    title: "Privacy Policy | Climato",
+    description:
+      "How Climato collects, uses, and protects your data, including location, search history, and conversations with Skye.",
+    url: "/privacy",
+    images: ["/opengraph-image"],
+    siteName: "Climato",
+    type: "website",
+  },
 };
 
 export default function PrivacyPolicy() {

@@ -5,28 +5,13 @@ import Features from "@/components/Features";
 import Screenshots from "@/components/Screenshots";
 import PromoBanner from "@/components/PromoBanner";
 import MeetSkye from "@/components/MeetSkye";
-import FAQ from "@/components/FAQ";
+import FAQ, { FAQS } from "@/components/FAQ";
 import FaircodeInitiative from "@/components/FaircodeInitiative";
 import Footer from "@/components/Footer";
 import StickyDownloadBar from "@/components/StickyDownloadBar";
 
-const ANSWER_SNIPPETS = [
-  {
-    question: "What is Climato?",
-    answer:
-      "Climato is a weather app that combines live conditions, city search, and an AI weather assistant so you can understand what the forecast means for your day.",
-  },
-  {
-    question: "How does Skye help with weather?",
-    answer:
-      "Skye turns raw forecast data into plain-language answers. It can explain if you should carry an umbrella, what the humidity means, or how conditions will affect your commute.",
-  },
-  {
-    question: "Is Climato free?",
-    answer:
-      "Yes. Climato is free to download on iOS and Android, with simple access to live weather details and AI-enhanced explanations.",
-  },
-];
+// Same wording as the FAQ section so answer engines see one consistent answer per question.
+const ANSWER_SNIPPETS = FAQS.slice(0, 3);
 
 export default function Home() {
   return (
@@ -52,14 +37,14 @@ export default function Home() {
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {ANSWER_SNIPPETS.map((item) => (
               <article
-                key={item.question}
+                key={item.q}
                 className="rounded-2xl border border-surface-border bg-surface p-6 text-left shadow-sm"
               >
                 <h3 className="text-xl font-semibold tracking-[-0.015em] text-surface-foreground">
-                  {item.question}
+                  {item.q}
                 </h3>
                 <p className="mt-3 text-sm leading-[1.65] text-muted-light">
-                  {item.answer}
+                  {item.a}
                 </p>
               </article>
             ))}

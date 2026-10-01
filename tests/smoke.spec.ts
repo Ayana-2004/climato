@@ -57,9 +57,19 @@ test.describe("Climato landing page", () => {
       faqSchema.some(
         (script) =>
           script["@type"] === "FAQPage" ||
-          (script["@graph"] || []).some((item: any) => item["@type"] === "FAQPage")
+          (script["@graph"] || []).some((item: { "@type"?: string }) => item["@type"] === "FAQPage")
       )
     ).toBeTruthy();
+  });
+
+  test("legal pages declare their own canonical URL", async ({ page }) => {
+    for (const path of ["/privacy", "/terms"]) {
+      await page.goto(path);
+      await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
+        "href",
+        `https://climato-peach.vercel.app${path}`
+      );
+    }
   });
 
   test("renders correctly on a mobile viewport", async ({ page }) => {

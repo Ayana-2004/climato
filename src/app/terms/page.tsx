@@ -3,9 +3,21 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — Climato",
+  title: "Terms of Service | Climato",
   description:
     "The terms that govern your use of Climato, the weather app from Faircode.",
+  alternates: {
+    canonical: "/terms",
+  },
+  openGraph: {
+    title: "Terms of Service | Climato",
+    description:
+      "The terms that govern your use of Climato, the weather app from Faircode.",
+    url: "/terms",
+    images: ["/opengraph-image"],
+    siteName: "Climato",
+    type: "website",
+  },
 };
 
 export default function TermsOfService() {

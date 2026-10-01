@@ -1,11 +1,11 @@
-const FAQS = [
+export const FAQS = [
   {
     q: "What is Climato?",
     a: "Climato is a weather app that blends live forecast data, local conditions, and a conversational AI assistant so you can understand the weather and act on it quickly.",
   },
   {
     q: "How does Skye help with weather?",
-    a: "Skye is Climato's built-in AI Weather Assistant. Ask it plain-language questions — like whether to carry a jacket, or what a visibility reading means for driving — and it answers using the live forecast for your location.",
+    a: "Skye is Climato's built-in AI Weather Assistant. Ask it plain-language questions, like whether to carry a jacket or what a visibility reading means for driving, and it answers using the live forecast for your location.",
   },
   {
     q: "Is Climato free to download?",
@@ -17,7 +17,7 @@ const FAQS = [
   },
   {
     q: "What does Nearby Explorer do?",
-    a: "It shows weather at the specific places you're headed — a workplace, a stadium, a meeting across town — with distance and walk time to each, so the forecast isn't limited to your home city.",
+    a: "It shows weather at the specific places you're headed (a workplace, a stadium, a meeting across town) with distance and walk time to each, so the forecast isn't limited to your home city.",
   },
   {
     q: "Which platforms does Climato run on?",

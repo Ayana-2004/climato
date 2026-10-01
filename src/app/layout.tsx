@@ -15,9 +15,13 @@ const nunito = Nunito({
 });
 
 const SITE_URL = "https://climato-peach.vercel.app";
-const TITLE = "Climato — Weather That Guides You";
+const TITLE = "Climato | Weather That Guides You";
 const DESCRIPTION =
   "Climato, by Faircode, is an all-in-one weather forecast companion: live local conditions, global city search, Skye the AI Weather Assistant, Favorites, and Nearby Explorer. Download free on iOS and Android.";
+const STORE_LINKS = [
+  "https://apps.apple.com/us/app/climato/id6755456353",
+  "https://play.google.com/store/apps/details?id=com.climato",
+];
 const KEYWORDS = [
   "weather app",
   "AI weather assistant",
@@ -44,20 +48,11 @@ export const metadata: Metadata = {
     siteName: "Climato",
     type: "website",
     url: SITE_URL,
-    images: [
-      {
-        url: "/opengraph-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Climato weather app preview",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: TITLE,
     description: DESCRIPTION,
-    images: ["/opengraph-image.png"],
   },
 };
 
@@ -69,47 +64,45 @@ const JSON_LD = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": "https://faircodetech.com/#organization",
+      name: "Faircode",
+      url: "https://faircodetech.com",
+      logo: `${SITE_URL}/Faircode.webp`,
+    },
+    {
       "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
       name: "Climato",
       url: SITE_URL,
       description: DESCRIPTION,
-      potentialAction: {
-        "@type": "SearchAction",
-        target: `${SITE_URL}/?q={search_term_string}`,
-        "query-input": "required name=search_term_string",
-      },
+      inLanguage: "en",
+      publisher: { "@id": "https://faircodetech.com/#organization" },
     },
     {
-      "@type": "Organization",
-      name: "Faircode",
-      url: "https://faircodetech.com",
-      logo: `${SITE_URL}/opengraph-image.png`,
-      sameAs: [
-        "https://apps.apple.com/us/app/climato/id6755456353",
-        "https://play.google.com/store/apps/details?id=com.climato",
-      ],
-    },
-    {
-      "@type": "SoftwareApplication",
+      "@type": "MobileApplication",
+      "@id": `${SITE_URL}/#app`,
       name: "Climato",
       url: SITE_URL,
+      image: `${SITE_URL}/climato-icon.png`,
       applicationCategory: "WeatherApplication",
       operatingSystem: "iOS, Android",
       description: DESCRIPTION,
+      featureList: [
+        "Live local weather: temperature, humidity, rain, wind, UV index, visibility",
+        "Search any city worldwide",
+        "Skye, an AI Weather Assistant that explains the forecast",
+        "Favorites list for frequently checked cities",
+        "Nearby Explorer with distance and walk time to nearby places",
+      ],
       offers: {
         "@type": "Offer",
         price: "0",
         priceCurrency: "USD",
       },
-      publisher: {
-        "@type": "Organization",
-        name: "Faircode",
-        url: "https://faircodetech.com",
-      },
-      sameAs: [
-        "https://apps.apple.com/us/app/climato/id6755456353",
-        "https://play.google.com/store/apps/details?id=com.climato",
-      ],
+      publisher: { "@id": "https://faircodetech.com/#organization" },
+      installUrl: STORE_LINKS,
+      sameAs: STORE_LINKS,
     },
   ],
 };
