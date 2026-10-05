@@ -23,7 +23,7 @@ export default function Home() {
         <Features />
         <section
           aria-labelledby="answer-snippets"
-          className="mx-auto max-w-6xl scroll-mt-20 px-6 py-20 sm:py-28"
+          className="mx-auto max-w-6xl scroll-mt-20 px-6 pt-10 pb-20 sm:pt-12 sm:pb-24"
         >
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-bold uppercase tracking-[0.14em] text-sky">

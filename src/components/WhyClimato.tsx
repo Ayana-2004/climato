@@ -27,7 +27,7 @@ const NEEDS = [
 
 export default function WhyClimato() {
   return (
-    <section id="why" className="scroll-mt-20 bg-surface px-6 py-20 sm:py-28">
+    <section id="why" className="scroll-mt-20 bg-surface px-6 py-20 sm:py-24">
       <div className="mx-auto max-w-6xl">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-3xl font-semibold tracking-[-0.02em] text-foreground sm:text-4xl">

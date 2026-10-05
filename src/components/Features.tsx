@@ -34,7 +34,7 @@ const FEATURES = [
 
 export default function Features() {
   return (
-    <section id="features" className="mx-auto max-w-6xl scroll-mt-20 px-6 py-20 sm:py-28">
+    <section id="features" className="mx-auto max-w-6xl scroll-mt-20 px-6 pt-16 pb-10 sm:pt-20 sm:pb-12">
       <div className="mx-auto max-w-2xl text-center">
         <h2 className="text-3xl font-semibold tracking-[-0.02em] text-foreground sm:text-4xl">
           Everything you need to read the sky
