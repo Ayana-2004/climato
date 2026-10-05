@@ -25,7 +25,7 @@ export default function FaircodeInitiative() {
           <Image src="/Faircode.webp" alt="Faircode" width={210} height={54} />
         </a>
         <p className="mt-4 text-base leading-[1.55] text-white/75">
-          Faircode builds software that makes complex things simple — from
+          Faircode builds software that makes complex things simple, from
           enterprise operations to the weather app in your pocket. Climato is
           one of those initiatives.
         </p>

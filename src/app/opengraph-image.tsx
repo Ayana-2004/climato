@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-export const alt = "Climato — Weather that guides you";
+export const alt = "Climato | Weather that guides you";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -53,7 +53,7 @@ export default async function Image() {
             maxWidth: 880,
           }}
         >
-          Weather that doesn&apos;t just show data — it guides you.
+          Weather that doesn&apos;t just show data. It guides you.
         </div>
       </div>
     ),

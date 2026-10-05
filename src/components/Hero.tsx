@@ -36,12 +36,12 @@ export default function Hero() {
             Weather, explained
           </span>
           <h1 className="text-4xl font-bold tracking-[-0.022em] text-white sm:text-5xl">
-            Weather that doesn&apos;t just show data — it guides you.
+            Weather that doesn&apos;t just show data. It guides you.
           </h1>
           <p className="mt-5 text-lg leading-[1.55] text-white/85">
-            Climato brings live conditions, city search anywhere in the world,
-            and Skye, your AI Weather Assistant, together — so you know what
-            the forecast actually means for your day.
+            Climato brings together live conditions, city search anywhere in the
+            world, and Skye, your AI Weather Assistant, so you know what the
+            forecast actually means for your day.
           </p>
           <div id="download" className="scroll-mt-20">
             <StoreBadges className="mt-8 justify-center lg:justify-start" />

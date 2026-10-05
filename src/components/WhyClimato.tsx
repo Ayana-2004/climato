@@ -6,7 +6,7 @@ const NEEDS = [
   },
   {
     title: "One more app to check",
-    body: "Skye tells you before you ask — rain in twenty minutes, carry an umbrella — instead of making you dig through five screens.",
+    body: "Skye tells you before you ask (rain in twenty minutes, carry an umbrella) instead of making you dig through five screens.",
     dot: "bg-gradient-skye",
   },
   {

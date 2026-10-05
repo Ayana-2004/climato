@@ -37,7 +37,7 @@ export default function Screenshots() {
             A look inside Climato
           </h2>
           <p className="mt-4 text-lg leading-[1.55] text-muted-light">
-            Live weather, the AI Weather Assistant, and Nearby Explorer —
+            Live weather, the AI Weather Assistant, and Nearby Explorer,
             wrapped in Climato&apos;s own personality. Move your cursor over a
             screen.
           </p>
