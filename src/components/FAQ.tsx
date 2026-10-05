@@ -5,7 +5,7 @@ export const FAQS = [
   },
   {
     q: "How does Skye help with weather?",
-    a: "Skye is Climato's built-in AI Weather Assistant. Ask it plain-language questions, like whether to carry a jacket or what a visibility reading means for driving, and it answers using the live forecast for your location.",
+    a: "Skye is the AI Weather Assistant built into Climato. Ask it questions in plain language, like whether to carry a jacket or what a visibility reading means for driving, and it answers using the live forecast for your location.",
   },
   {
     q: "Is Climato free to download?",

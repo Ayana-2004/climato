@@ -2,7 +2,7 @@ const FEATURES = [
   {
     title: "Live Local Weather",
     description:
-      "Real-time temperature, humidity, rain, wind, UV index, and visibility for exactly where you are.",
+      "Live temperature, humidity, rain, wind, UV index, and visibility for exactly where you are, updated as conditions change.",
     dot: "bg-sky",
   },
   {
@@ -44,11 +44,12 @@ export default function Features() {
           act on it.
         </p>
       </div>
-      <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Flex-wrap, not grid, so the odd last row centers instead of leaving an empty slot. */}
+      <div className="mt-14 flex flex-wrap justify-center gap-6">
         {FEATURES.map((feature) => (
           <div
             key={feature.title}
-            className="rounded-2xl border border-surface-border bg-surface p-6 text-surface-foreground transition-shadow hover:shadow-lg"
+            className="w-full rounded-2xl border border-surface-border bg-surface p-6 text-surface-foreground transition-shadow hover:shadow-lg sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
           >
             <div className="mb-4 flex items-center gap-2">
               <span

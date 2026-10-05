@@ -13,7 +13,7 @@
 
 ## Features
 
-- Live Local Weather: real-time temperature, humidity, rain, wind, UV index, and visibility for your location.
+- Live Local Weather: live temperature, humidity, rain, wind, UV index, and visibility for your location, updated as conditions change.
 - Search Any City: forecasts for any city or town in the world.
 - Chat with Skye: an AI Weather Assistant that explains the forecast in plain language, not just reports it.
 - Favorites List: pin frequently checked cities and see their weather at a glance.
@@ -22,7 +22,7 @@
 ## FAQ
 
 - What is Climato? A weather app that blends live forecast data, local conditions, and a conversational AI assistant so you can understand the weather and act on it quickly.
-- How does Skye help? Ask it plain-language questions, like whether to carry a jacket or what a visibility reading means for driving, and it answers using the live forecast for your location.
+- How does Skye help? Ask it questions in plain language, like whether to carry a jacket or what a visibility reading means for driving, and it answers using the live forecast for your location.
 - Is Climato free? Yes, on both the App Store and Google Play.
 - Can I check weather for another city? Yes, Search Any City covers any city or town worldwide.
 
