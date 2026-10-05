@@ -72,6 +72,18 @@ test.describe("Climato landing page", () => {
     }
   });
 
+  test("header logo returns to the top of the home page on every click", async ({ page }) => {
+    await page.goto("/");
+    const logo = page.getByRole("link", { name: "Climato home" });
+
+    for (let i = 0; i < 2; i++) {
+      await page.mouse.wheel(0, 3000);
+      await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(500);
+      await logo.click();
+      await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+    }
+  });
+
   test("renders correctly on a mobile viewport", async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/");

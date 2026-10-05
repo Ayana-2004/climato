@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const NAV_LINKS = [
   { href: "/#why", label: "Why Climato" },
@@ -15,11 +16,26 @@ const NAV_LINKS = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  // A same-URL link is a no-op in Next, so on the home page scroll to top by hand.
+  const handleLogoClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    setOpen(false);
+    if (pathname !== "/") return;
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.history.replaceState(null, "", "/");
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-8">
-        <Link href="/#hero" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+        <Link
+          href="/"
+          aria-label="Climato home"
+          className="flex items-center gap-3"
+          onClick={handleLogoClick}
+        >
           <Image
             src="/climato-icon.png"
             alt="Climato"
