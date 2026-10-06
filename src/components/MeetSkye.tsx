@@ -8,11 +8,11 @@ const PROMPTS = [
 
 export default function MeetSkye() {
   return (
-    <section id="skye" className="relative scroll-mt-20 overflow-hidden bg-background px-6 py-20 sm:py-28">
+    <section id="skye" className="relative scroll-mt-20 overflow-hidden bg-background px-6 pt-12 pb-20 sm:pt-16 sm:pb-28">
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute top-0 right-[10%] h-72 w-72 rounded-full bg-periwinkle/10 blur-3xl" />
       </div>
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-12 lg:flex-row lg:justify-between">
+      <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-12 lg:flex-row lg:justify-center lg:gap-20">
         <div className="relative shrink-0">
           <div className="relative aspect-[738/1600] w-56 overflow-hidden rounded-[2.5rem] border-8 border-white shadow-2xl sm:w-64">
             <Image
