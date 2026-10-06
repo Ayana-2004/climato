@@ -149,3 +149,42 @@ h6 {
     animation: none;
   }
 }
+
+/* App screenshots: fade up one after another on first view, then float
+   gently, each card out of phase so the row moves like a slow wave. */
+@keyframes screen-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-screen-float {
+  animation: screen-float 6s ease-in-out infinite;
+}
+
+.screen-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition:
+    opacity 700ms ease-out,
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.screen-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-screen-float {
+    animation: none;
+  }
+  .screen-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
