@@ -1,10 +1,11 @@
 import Link from "next/link";
 import StoreBadges from "./StoreBadges";
+import FooterNav from "./FooterNav";
 
 export default function Footer() {
   return (
     <footer className="border-t border-border bg-background">
-      <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 py-12 text-center sm:flex-row sm:justify-between sm:text-left">
+      <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 px-6 py-12 text-center md:flex-row md:items-start md:justify-between md:text-left">
         <div>
           <p className="font-heading text-sm font-semibold text-foreground">
             Climato
@@ -19,20 +20,23 @@ export default function Footer() {
             www.faircodetech.com
           </a>
         </div>
+        <FooterNav />
         <StoreBadges />
       </div>
-      <div className="flex flex-col items-center gap-3 border-t border-border px-6 py-6 text-center sm:flex-row sm:justify-between">
-        <p className="text-xs text-muted-light">
-          © {new Date().getFullYear()} Faircode. Climato is a Faircode
-          product.
-        </p>
-        <div className="flex items-center gap-4 text-xs text-muted-light">
-          <Link href="/privacy" className="hover:text-foreground hover:underline">
-            Privacy Policy
-          </Link>
-          <Link href="/terms" className="hover:text-foreground hover:underline">
-            Terms of Service
-          </Link>
+      <div className="border-t border-border py-6">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-3 px-6 text-center sm:flex-row sm:justify-between">
+          <p className="text-xs text-muted-light">
+            © {new Date().getFullYear()} Faircode. Climato is a Faircode
+            product.
+          </p>
+          <div className="flex items-center gap-4 text-xs text-muted-light">
+            <Link href="/privacy" className="hover:text-foreground hover:underline">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="hover:text-foreground hover:underline">
+              Terms of Service
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

@@ -110,6 +110,16 @@ test.describe("Climato landing page", () => {
     await expect(page.locator("#features h2")).toBeInViewport();
   });
 
+  test("footer links to every page section", async ({ page }) => {
+    await page.goto("/");
+    const footerNav = page.locator("footer nav");
+    for (const name of ["Why Climato", "Features", "Screens", "Meet Skye", "FAQ", "About"]) {
+      await expect(footerNav.getByRole("link", { name })).toBeVisible();
+    }
+    await footerNav.getByRole("link", { name: "Meet Skye" }).click();
+    await expect(page.locator("#skye h2")).toBeInViewport();
+  });
+
   test("renders correctly on a mobile viewport", async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/");
