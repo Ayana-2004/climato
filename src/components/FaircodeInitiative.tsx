@@ -17,8 +17,6 @@ export default function FaircodeInitiative() {
         </p>
         <a
           href="https://faircodetech.com"
-          target="_blank"
-          rel="noopener noreferrer"
           aria-label="Visit Faircode's website"
           className="mt-4 flex items-center justify-center"
         >
@@ -54,8 +52,6 @@ export default function FaircodeInitiative() {
 
         <a
           href="https://faircodetech.com"
-          target="_blank"
-          rel="noopener noreferrer"
           className="mt-7 inline-flex items-center gap-1.5 rounded-xl bg-white/10 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/15"
         >
           Visit faircodetech.com

@@ -14,8 +14,6 @@ export default function Footer() {
           </p>
           <a
             href="https://www.faircodetech.com"
-            target="_blank"
-            rel="noopener noreferrer"
             className="mt-3 inline-block text-sm text-muted underline-offset-4 hover:text-foreground hover:underline"
           >
             www.faircodetech.com
