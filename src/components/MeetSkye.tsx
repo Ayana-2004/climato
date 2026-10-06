@@ -14,7 +14,7 @@ export default function MeetSkye() {
       </div>
       <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-12 lg:flex-row lg:justify-center lg:gap-20">
         <div className="relative shrink-0">
-          <div className="relative aspect-[738/1600] w-56 overflow-hidden rounded-[2.5rem] border-8 border-white shadow-2xl sm:w-64">
+          <div className="relative aspect-[738/1600] w-56 overflow-hidden rounded-[2.5rem] border-8 border-white shadow-2xl sm:w-64 lg:w-[min(16rem,calc((100svh-9rem)*0.46))]">
             <Image
               src="/IMG-20260721-WA0023.jpg"
               alt="Skye, Climato's AI Weather Assistant, holding an umbrella in the rain"

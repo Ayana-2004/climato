@@ -17,6 +17,25 @@ const NAV_LINKS = [
 
 const SECTION_IDS = NAV_LINKS.map((link) => link.href.split("#")[1]);
 
+// Where to scroll so a section's content is fully in view under the sticky
+// header: centered if it fits, otherwise starting just above its content
+// (skipping the section's own top padding, which is empty space).
+function sectionScrollTop(section: HTMLElement) {
+  if (section.id === "hero") return 0;
+  const headerH = document.querySelector("header")?.getBoundingClientRect().height ?? 0;
+  const style = getComputedStyle(section);
+  const rect = section.getBoundingClientRect();
+  const contentTop = rect.top + window.scrollY + parseFloat(style.paddingTop);
+  const contentBottom = rect.bottom + window.scrollY - parseFloat(style.paddingBottom);
+  const available = window.innerHeight - headerH;
+  const contentH = contentBottom - contentTop;
+  const top =
+    contentH <= available
+      ? contentTop - headerH - (available - contentH) / 2
+      : contentTop - headerH - 24;
+  return Math.max(0, Math.round(top));
+}
+
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string | null>(null);
@@ -80,8 +99,7 @@ export default function Header() {
     setActive(id && SECTION_IDS.includes(id) ? id : null);
     lockUntil.current = Date.now() + 1000;
     window.setTimeout(() => window.dispatchEvent(new Event("scroll")), 1050);
-    if (target) target.scrollIntoView({ behavior });
-    else window.scrollTo({ top: 0, behavior });
+    window.scrollTo({ top: target ? sectionScrollTop(target) : 0, behavior });
     window.history.replaceState(null, "", href);
   };
 
