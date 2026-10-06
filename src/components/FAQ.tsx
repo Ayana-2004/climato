@@ -53,7 +53,7 @@ export default function FAQ() {
         </h2>
         <div className="mt-12 divide-y divide-surface-border">
           {FAQS.map((item) => (
-            <details key={item.q} className="group py-5">
+            <details key={item.q} className="faq-item group py-5">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-base font-semibold text-surface-foreground marker:content-none">
                 {item.q}
                 <span

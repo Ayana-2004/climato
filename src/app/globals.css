@@ -188,3 +188,29 @@ h6 {
     transition: none;
   }
 }
+
+/* FAQ accordion: no grey tap flash on Android, and the answer slides open
+   instead of popping in and jolting the layout below it. Browsers without
+   ::details-content support simply open instantly, as before. */
+.faq-item {
+  interpolate-size: allow-keywords;
+}
+.faq-item summary {
+  -webkit-tap-highlight-color: transparent;
+}
+.faq-item::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition:
+    block-size 300ms ease,
+    content-visibility 300ms allow-discrete;
+}
+.faq-item[open]::details-content {
+  block-size: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-item::details-content {
+    transition: none;
+  }
+}
