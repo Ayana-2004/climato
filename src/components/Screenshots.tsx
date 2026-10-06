@@ -65,7 +65,9 @@ export default function Screenshots() {
           </p>
         </div>
         {/* All five screens in one even row on desktop; on narrower screens
-            they wrap into centered rows instead of scrolling sideways. */}
+            they wrap into centered rows instead of scrolling sideways. On
+            short desktop screens the cards also shrink by height, so the
+            heading and the whole row fit in one view. */}
         <div
           ref={row}
           className="mt-14 flex flex-wrap justify-center gap-4 sm:gap-5"
@@ -73,7 +75,7 @@ export default function Screenshots() {
           {SCREENSHOTS.map((shot, i) => (
             <div
               key={shot.src}
-              className={`screen-reveal w-[calc((100%-1rem)/2)] sm:w-[calc((100%-2.5rem)/3)] lg:w-[calc((100%-5rem)/5)] ${visible ? "is-visible" : ""}`}
+              className={`screen-reveal w-[calc((100%-1rem)/2)] sm:w-[calc((100%-2.5rem)/3)] lg:w-[min(calc((100%-5rem)/5),calc((100svh-16rem)*0.5625))] ${visible ? "is-visible" : ""}`}
               style={{ transitionDelay: `${i * 120}ms` }}
             >
               <div
