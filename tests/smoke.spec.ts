@@ -84,6 +84,32 @@ test.describe("Climato landing page", () => {
     }
   });
 
+  test("Faircode links open in the same tab so Back returns to Climato", async ({ page }) => {
+    await page.goto("/");
+    const links = page.locator('a[href*="faircodetech.com"]');
+    expect(await links.count()).toBeGreaterThan(0);
+    for (const link of await links.all()) {
+      expect(await link.getAttribute("target")).toBeNull();
+    }
+  });
+
+  test("Get the App shows the whole hero, heading included", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 720 });
+    await page.goto("/");
+    await page.mouse.wheel(0, 3000);
+    await page.locator("header").getByRole("link", { name: "Get the App" }).click();
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+    await expect(page.locator("h1")).toBeInViewport({ ratio: 1 });
+  });
+
+  test("nav links from a legal page land on the home page section", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 720 });
+    await page.goto("/privacy");
+    await page.locator("header").getByRole("link", { name: "Features" }).click();
+    await expect(page).toHaveURL(/\/#features$/);
+    await expect(page.locator("#features h2")).toBeInViewport();
+  });
+
   test("renders correctly on a mobile viewport", async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/");
