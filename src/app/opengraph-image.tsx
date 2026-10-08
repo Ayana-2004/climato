@@ -46,6 +46,8 @@ export default async function Image() {
         <div
           style={{
             display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
             marginTop: 28,
             fontSize: 34,
             color: "rgba(255,255,255,0.92)",
@@ -53,7 +55,8 @@ export default async function Image() {
             maxWidth: 880,
           }}
         >
-          Weather that doesn&apos;t just show data. It guides you.
+          <div>Weather that doesn&apos;t just show data</div>
+          <div>It guides you</div>
         </div>
       </div>
     ),

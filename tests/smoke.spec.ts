@@ -122,6 +122,16 @@ test.describe("Climato landing page", () => {
     await expect(page.locator("#skye h2")).toBeInViewport();
   });
 
+  test("headlines carry no commas or periods", async ({ page }) => {
+    await page.goto("/");
+    const punctuated = await page.evaluate(() =>
+      [...document.querySelectorAll("h1, h2, h3, #hero span.uppercase")]
+        .map((e) => (e.textContent || "").trim())
+        .filter((t) => /[.,]/.test(t))
+    );
+    expect(punctuated).toEqual([]);
+  });
+
   test("renders correctly on a mobile viewport", async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/");

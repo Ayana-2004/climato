@@ -33,10 +33,13 @@ export default function Hero() {
       <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-12 px-6 py-20 sm:py-28 lg:flex-row lg:justify-between lg:py-14">
         <div className="max-w-xl text-center lg:text-left">
           <span className="mb-5 inline-block text-xs font-bold uppercase tracking-[0.14em] text-white/80">
-            Weather, explained
+            Weather explained
           </span>
           <h1 className="text-4xl font-bold tracking-[-0.022em] text-white sm:text-5xl">
-            Weather that doesn&apos;t just show data. It guides you.
+            {/* The line break does the work of punctuation; headlines carry none. */}
+            <span className="block">Weather that doesn&apos;t just show data</span>
+            {" "}
+            <span className="block">It guides you</span>
           </h1>
           <p className="mt-5 text-lg leading-[1.55] text-white/85">
             Climato brings together live conditions, city search anywhere in the
