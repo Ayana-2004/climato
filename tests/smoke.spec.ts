@@ -93,13 +93,15 @@ test.describe("Climato landing page", () => {
     }
   });
 
-  test("Get the App shows the whole hero, heading included", async ({ page }) => {
+  test("Get the App shows the whole hero, heading and phone included", async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 720 });
     await page.goto("/");
     await page.mouse.wheel(0, 3000);
     await page.locator("header").getByRole("link", { name: "Get the App" }).click();
     await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
     await expect(page.locator("h1")).toBeInViewport({ ratio: 1 });
+    // The phone image is the tallest part of the hero; it must fit too.
+    await expect(page.locator("#hero img").first()).toBeInViewport({ ratio: 1 });
   });
 
   test("nav links from a legal page land on the home page section", async ({ page }) => {

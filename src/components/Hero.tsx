@@ -30,7 +30,7 @@ export default function Hero() {
         <CloudShape className="animate-cloud-6 absolute top-1/2 h-12 w-20 text-white/20" />
       </div>
       <RainCursor />
-      <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-12 px-6 py-20 sm:py-28 lg:flex-row lg:justify-between">
+      <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-12 px-6 py-20 sm:py-28 lg:flex-row lg:justify-between lg:py-14">
         <div className="max-w-xl text-center lg:text-left">
           <span className="mb-5 inline-block text-xs font-bold uppercase tracking-[0.14em] text-white/80">
             Weather, explained
@@ -48,7 +48,7 @@ export default function Hero() {
           </div>
         </div>
         <TiltCard className="relative shrink-0">
-          <div className="relative aspect-[738/1600] w-64 overflow-hidden rounded-[2.5rem] border-8 border-white shadow-2xl">
+          <div className="relative aspect-[738/1600] w-64 overflow-hidden rounded-[2.5rem] border-8 border-white shadow-2xl lg:w-[min(16rem,calc((100svh-14.5rem)*0.46))]">
             <Image
               src="/IMG-20260721-WA0019.jpg"
               alt="Climato home screen showing Kochi weather, 30°C and cloudy"
