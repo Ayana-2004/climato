@@ -165,6 +165,13 @@ h6 {
 .animate-screen-float {
   animation: screen-float 6s ease-in-out infinite;
 }
+/* Hold the card still while it is being looked at. Lives here, not as a
+   Tailwind class, because these unlayered rules would override it. */
+@media (hover: hover) {
+  .group:hover .animate-screen-float {
+    animation-play-state: paused;
+  }
+}
 
 .screen-reveal {
   opacity: 0;

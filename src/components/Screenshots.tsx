@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import TiltCard from "./TiltCard";
 
 const SCREENSHOTS = [
   {
@@ -78,22 +77,26 @@ export default function Screenshots() {
               className={`screen-reveal w-[calc((100%-1rem)/2)] sm:w-[calc((100%-2.5rem)/3)] lg:w-[min(calc((100%-5rem)/5),calc((100svh-16rem)*0.5625))] ${visible ? "is-visible" : ""}`}
               style={{ transitionDelay: `${i * 120}ms` }}
             >
-              <div
-                className="animate-screen-float"
-                style={{ animationDelay: `${i * -1.2}s` }}
-              >
-                <TiltCard>
-                  <div className="relative aspect-[1512/2688] w-full overflow-hidden rounded-3xl shadow-xl ring-1 ring-border">
+              {/* Hover is detected on this static frame, not on the floating
+                  card, so the drifting card can never slip out from under the
+                  cursor. On hover the float pauses and the card lifts. */}
+              <div className="group select-none">
+                <div
+                  className="animate-screen-float"
+                  style={{ animationDelay: `${i * -1.2}s` }}
+                >
+                  <div className="relative aspect-[1512/2688] w-full overflow-hidden rounded-3xl shadow-xl ring-1 ring-border transition-[translate,box-shadow] duration-300 ease-out group-hover:-translate-y-1.5 group-hover:shadow-2xl">
                     <Image
                       src={shot.src}
                       alt={shot.alt}
                       fill
+                      draggable={false}
                       sizes="(min-width: 1024px) 260px, (min-width: 640px) 30vw, 46vw"
                       quality={90}
                       className="object-cover"
                     />
                   </div>
-                </TiltCard>
+                </div>
               </div>
             </div>
           ))}
