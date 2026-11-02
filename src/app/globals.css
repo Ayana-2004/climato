@@ -150,27 +150,13 @@ h6 {
   }
 }
 
-/* App screenshots: fade up one after another on first view, then float
-   gently, each card out of phase so the row moves like a slow wave. */
-@keyframes screen-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-.animate-screen-float {
-  animation: screen-float 6s ease-in-out infinite;
-}
-/* Hold the card still while it is being looked at. Lives here, not as a
-   Tailwind class, because these unlayered rules would override it. */
-@media (hover: hover) {
-  .group:hover .animate-screen-float {
-    animation-play-state: paused;
-  }
+/* App screenshots: fade up one after another on first view, then stay put.
+   No idle float: a card that drifts under the cursor or finger reads as a
+   glitch (Bug_011, Bug_012), and a card paused mid-drift sits on a
+   fractional pixel, which blurs the screenshot. */
+.screen-card {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
 }
 
 .screen-reveal {
@@ -186,9 +172,6 @@ h6 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-screen-float {
-    animation: none;
-  }
   .screen-reveal {
     opacity: 1;
     transform: none;
