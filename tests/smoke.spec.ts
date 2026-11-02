@@ -74,7 +74,7 @@ test.describe("Climato landing page", () => {
 
   test("header logo returns to the top of the home page on every click", async ({ page }) => {
     await page.goto("/");
-    const logo = page.getByRole("link", { name: "Climato home" });
+    const logo = page.locator("header").getByRole("link", { name: "Climato home" });
 
     for (let i = 0; i < 2; i++) {
       await page.mouse.wheel(0, 3000);
@@ -82,6 +82,24 @@ test.describe("Climato landing page", () => {
       await logo.click();
       await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
     }
+  });
+
+  test("footer logo returns to the top of the home page (Bug_025)", async ({ page }) => {
+    await page.goto("/");
+    const logo = page.locator("footer").getByRole("link", { name: "Climato home" });
+
+    for (let i = 0; i < 2; i++) {
+      await logo.scrollIntoViewIfNeeded();
+      await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(500);
+      await logo.click();
+      await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+    }
+  });
+
+  test("footer logo on a legal page goes to the home page", async ({ page }) => {
+    await page.goto("/privacy");
+    await page.locator("footer").getByRole("link", { name: "Climato home" }).click();
+    await expect(page).toHaveURL(/\/$/);
   });
 
   test("Faircode links open in the same tab so Back returns to Climato", async ({ page }) => {

@@ -1,25 +1,14 @@
-import Image from "next/image";
 import Link from "next/link";
 import StoreBadges from "./StoreBadges";
 import FooterNav from "./FooterNav";
+import FooterLogo from "./FooterLogo";
 
 export default function Footer() {
   return (
     <footer className="border-t border-border bg-background">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 px-6 py-12 text-center md:flex-row md:items-start md:justify-between md:text-left">
         <div className="flex flex-col items-center md:items-start">
-          <div className="flex items-center gap-2.5">
-            <Image
-              src="/climato-icon.png"
-              alt=""
-              width={36}
-              height={36}
-              className="rounded-lg"
-            />
-            <p className="font-heading text-lg font-bold tracking-[-0.02em] text-foreground">
-              Climato
-            </p>
-          </div>
+          <FooterLogo />
           <p className="mt-2 text-sm text-muted">
             Weather that guides you, not just data.
           </p>
