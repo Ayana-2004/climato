@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV_LINKS, SECTION_IDS, sectionScrollTop } from "./nav";
+import { APP_STORE_URL, PLAY_STORE_URL } from "./StoreBadges";
 
 
 export default function Header() {
@@ -75,6 +76,43 @@ export default function Header() {
     window.history.replaceState(null, "", href);
   };
 
+  // Get the App (Bug_028): a phone goes straight to its own store. Elsewhere
+  // scroll to the hero and pulse the store buttons once the scroll settles,
+  // so the click visibly does something even when the hero is already in view.
+  const getApp = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const ua = navigator.userAgent;
+    const store = /iPhone|iPad|iPod/.test(ua)
+      ? APP_STORE_URL
+      : /Android/.test(ua)
+        ? PLAY_STORE_URL
+        : null;
+    if (store) {
+      event.preventDefault();
+      setOpen(false);
+      window.location.assign(store);
+      return;
+    }
+    scrollTo("/#hero")(event);
+    if (pathname !== "/") return;
+    const badges = document.getElementById("download");
+    if (!badges) return;
+    let started = false;
+    const pulse = () => {
+      if (started) return;
+      started = true;
+      badges.classList.remove("store-attention");
+      void badges.offsetWidth; // restart the animation on a repeat click
+      badges.classList.add("store-attention");
+      window.setTimeout(() => badges.classList.remove("store-attention"), 1800);
+    };
+    if (window.scrollY <= 1) {
+      pulse();
+    } else {
+      window.addEventListener("scrollend", pulse, { once: true });
+      window.setTimeout(pulse, 1200); // browsers without scrollend
+    }
+  };
+
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 sm:px-8">
@@ -119,7 +157,7 @@ export default function Header() {
 
         <Link
           href="/#hero"
-          onClick={scrollTo("/#hero")}
+          onClick={getApp}
           className="hidden rounded-xl bg-sky px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90 md:inline-flex"
         >
           Get the App
@@ -166,7 +204,7 @@ export default function Header() {
           })}
           <Link
             href="/#hero"
-            onClick={scrollTo("/#hero")}
+            onClick={getApp}
             className="mt-2 rounded-xl bg-sky px-4 py-2.5 text-center text-sm font-semibold text-white"
           >
             Get the App

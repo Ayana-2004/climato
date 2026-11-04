@@ -39,35 +39,39 @@ export default function WhyClimato() {
           </p>
         </div>
         <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {/* Hover is read from the static wrapper, not the lifting card, so
+              the lift can't slide the card's edge out from under the cursor
+              and flicker the hover on and off (Bug_026). */}
           {NEEDS.map((need) => (
-            <article
-              key={need.title}
-              className="flex flex-col items-start rounded-[20px] bg-background p-7 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-md"
-            >
-              <span
-                aria-hidden="true"
-                className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl ${need.badge}`}
+            <div key={need.title} className="group">
+              <article
+                className="flex h-full flex-col items-start rounded-[20px] bg-background p-7 shadow-sm transition duration-200 group-hover:-translate-y-0.5 group-hover:shadow-md"
               >
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                <span
+                  aria-hidden="true"
+                  className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl ${need.badge}`}
                 >
-                  {need.icon}
-                </svg>
-              </span>
-              <h3 className="mt-5 text-lg font-semibold leading-snug tracking-[-0.015em] text-foreground">
-                {need.title}
-              </h3>
-              <p className="mt-2 text-sm leading-[1.6] text-muted">
-                {need.body}
-              </p>
-            </article>
+                  <svg
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    {need.icon}
+                  </svg>
+                </span>
+                <h3 className="mt-5 text-lg font-semibold leading-snug tracking-[-0.015em] text-foreground">
+                  {need.title}
+                </h3>
+                <p className="mt-2 text-sm leading-[1.6] text-muted">
+                  {need.body}
+                </p>
+              </article>
+            </div>
           ))}
         </div>
       </div>

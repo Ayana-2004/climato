@@ -24,7 +24,7 @@ export default function StoreBadges({ className = "" }: { className?: string }) 
         href={APP_STORE_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center gap-2 rounded-xl bg-foreground px-5 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
+        className="flex items-center justify-center gap-2 rounded-xl border border-foreground bg-foreground px-5 py-3 text-sm font-medium text-background transition-[background-color,border-color,box-shadow] hover:border-sky hover:bg-foreground/80 hover:shadow-lg"
       >
         <AppleIcon />
         <span>
@@ -35,7 +35,7 @@ export default function StoreBadges({ className = "" }: { className?: string }) 
         href={PLAY_STORE_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="flex items-center justify-center gap-2 rounded-xl border border-border bg-white px-5 py-3 text-sm font-medium text-foreground transition-colors hover:border-sky"
+        className="flex items-center justify-center gap-2 rounded-xl border border-border bg-white px-5 py-3 text-sm font-medium text-foreground transition-[background-color,border-color,box-shadow] hover:border-sky hover:bg-surface hover:shadow-lg"
       >
         <PlayIcon />
         <span>

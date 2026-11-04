@@ -122,6 +122,33 @@ test.describe("Climato landing page", () => {
     await expect(page.locator("#hero img").first()).toBeInViewport({ ratio: 1 });
   });
 
+  test("Get the App points at the store buttons even from the top (Bug_028)", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 720 });
+    await page.goto("/");
+    await page.locator("header").getByRole("link", { name: "Get the App" }).click();
+    await expect(page.locator("#download")).toHaveClass(/store-attention/);
+  });
+
+  test("home cards keep their hover along the bottom edge (Bug_026, Bug_030)", async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 720 });
+    await page.goto("/");
+    for (const card of [
+      page.locator("#why article").first(),
+      page.locator('[aria-labelledby="answer-snippets"] article').first(),
+    ]) {
+      await card.scrollIntoViewIfNeeded();
+      const box = (await card.boundingBox())!;
+      const y = box.y + box.height - 1;
+      await page.mouse.move(box.x + box.width / 2, y);
+      await page.waitForTimeout(300); // let the lift finish
+      for (const dx of [4, 8, 12]) {
+        await page.mouse.move(box.x + box.width / 2 + dx, y);
+        expect(await card.evaluate((el) => el.parentElement!.matches(":hover"))).toBe(true);
+      }
+      await page.mouse.move(0, 0);
+    }
+  });
+
   test("nav links from a legal page land on the home page section", async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 720 });
     await page.goto("/privacy");

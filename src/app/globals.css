@@ -179,6 +179,25 @@ h6 {
   }
 }
 
+/* Get the App: pulse the store buttons so the click visibly lands on them. */
+@keyframes store-attention {
+  0% {
+    box-shadow: 0 0 0 0 rgb(255 255 255 / 0.95);
+  }
+  100% {
+    box-shadow: 0 0 0 14px rgb(255 255 255 / 0);
+  }
+}
+.store-attention a {
+  animation: store-attention 0.9s ease-out 2;
+}
+@media (prefers-reduced-motion: reduce) {
+  .store-attention a {
+    animation: none;
+    box-shadow: 0 0 0 3px #ffffff;
+  }
+}
+
 /* FAQ accordion: no grey tap flash on Android, and the answer slides open
    instead of popping in and jolting the layout below it. Browsers without
    ::details-content support simply open instantly, as before. */

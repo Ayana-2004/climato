@@ -35,18 +35,21 @@ export default function Home() {
           </div>
 
           <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {/* Same hover as the Why Climato cards, read from a static
+                wrapper so the lift can't flicker at the edge (Bug_030). */}
             {ANSWER_SNIPPETS.map((item) => (
-              <article
-                key={item.q}
-                className="rounded-2xl border border-surface-border bg-surface p-6 text-left shadow-sm"
-              >
-                <h3 className="text-xl font-semibold tracking-[-0.015em] text-surface-foreground">
-                  {item.q}
-                </h3>
-                <p className="mt-3 text-sm leading-[1.65] text-muted-light">
-                  {item.a}
-                </p>
-              </article>
+              <div key={item.q} className="group">
+                <article
+                  className="h-full rounded-2xl border border-surface-border bg-surface p-6 text-left shadow-sm transition duration-200 group-hover:-translate-y-0.5 group-hover:shadow-md"
+                >
+                  <h3 className="text-xl font-semibold tracking-[-0.015em] text-surface-foreground">
+                    {item.q}
+                  </h3>
+                  <p className="mt-3 text-sm leading-[1.65] text-muted-light">
+                    {item.a}
+                  </p>
+                </article>
+              </div>
             ))}
           </div>
         </section>
