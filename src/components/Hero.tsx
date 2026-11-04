@@ -1,6 +1,5 @@
 import Image from "next/image";
 import StoreBadges from "./StoreBadges";
-import TiltCard from "./TiltCard";
 import RainCursor from "./RainCursor";
 
 function CloudShape({ className }: { className?: string }) {
@@ -50,24 +49,29 @@ export default function Hero() {
             <StoreBadges className="mt-8 justify-center lg:justify-start" />
           </div>
         </div>
-        <TiltCard className="relative shrink-0">
-          <div className="relative aspect-[738/1600] w-64 overflow-hidden rounded-[2.5rem] border-8 border-white shadow-2xl lg:w-[min(16rem,calc((100svh-14.5rem)*0.46))]">
-            <Image
-              src="/IMG-20260721-WA0019.jpg"
-              alt="Climato home screen showing Kochi weather, 30°C and cloudy"
-              fill
-              sizes="256px"
-              priority
-              className="object-cover"
-            />
+        {/* Same plain lift as the promo banner in place of the pointer tilt
+            (Bug_027). The chip lifts with the phone. */}
+        <div className="group relative shrink-0 select-none">
+          <div className="relative transition-[translate] duration-300 ease-out group-hover:-translate-y-1.5">
+            <div className="relative aspect-[738/1600] w-64 overflow-hidden rounded-[2.5rem] border-8 border-white shadow-2xl lg:w-[min(16rem,calc((100svh-14.5rem)*0.46))]">
+              <Image
+                src="/IMG-20260721-WA0019.jpg"
+                alt="Climato home screen showing Kochi weather, 30°C and cloudy"
+                fill
+                draggable={false}
+                sizes="256px"
+                priority
+                className="object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-5 -left-8 flex items-center gap-2 rounded-2xl bg-white px-4 py-2.5 shadow-xl">
+              <span aria-hidden="true">☔</span>
+              <span className="text-sm font-medium text-foreground">
+                Skye: Carry an umbrella today
+              </span>
+            </div>
           </div>
-          <div className="absolute -bottom-5 -left-8 flex items-center gap-2 rounded-2xl bg-white px-4 py-2.5 shadow-xl">
-            <span aria-hidden="true">☔</span>
-            <span className="text-sm font-medium text-foreground">
-              Skye: Carry an umbrella today
-            </span>
-          </div>
-        </TiltCard>
+        </div>
       </div>
     </section>
   );

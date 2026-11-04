@@ -129,12 +129,13 @@ test.describe("Climato landing page", () => {
     await expect(page.locator("#download")).toHaveClass(/store-attention/);
   });
 
-  test("home cards keep their hover along the bottom edge (Bug_026, Bug_030)", async ({ page }) => {
+  test("home cards keep their hover along the bottom edge (Bug_026, Bug_027, Bug_030)", async ({ page }) => {
     await page.setViewportSize({ width: 1280, height: 720 });
     await page.goto("/");
     for (const card of [
       page.locator("#why article").first(),
       page.locator('[aria-labelledby="answer-snippets"] article').first(),
+      page.locator('img[alt^="Climato mascot lineup"]').locator("xpath=.."),
     ]) {
       await card.scrollIntoViewIfNeeded();
       const box = (await card.boundingBox())!;
