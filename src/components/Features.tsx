@@ -46,23 +46,27 @@ export default function Features() {
       </div>
       {/* Flex-wrap, not grid, so the odd last row centers instead of leaving an empty slot. */}
       <div className="mt-14 flex flex-wrap justify-center gap-6">
+        {/* Same lift as the other home cards, read from the static wrapper
+            so the lift can't flicker at the card's edge. */}
         {FEATURES.map((feature) => (
           <div
             key={feature.title}
-            className="w-full rounded-2xl border border-surface-border bg-surface p-6 text-surface-foreground transition-shadow hover:shadow-lg sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
+            className="group w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
           >
-            <div className="mb-4 flex items-center gap-2">
-              <span
-                aria-hidden="true"
-                className={`h-2.5 w-2.5 shrink-0 rounded-full ${feature.dot}`}
-              />
-              <h3 className="text-base font-semibold tracking-[-0.015em]">
-                {feature.title}
-              </h3>
+            <div className="h-full rounded-2xl border border-surface-border bg-surface p-6 text-surface-foreground transition duration-200 group-hover:-translate-y-0.5 group-hover:shadow-lg">
+              <div className="mb-4 flex items-center gap-2">
+                <span
+                  aria-hidden="true"
+                  className={`h-2.5 w-2.5 shrink-0 rounded-full ${feature.dot}`}
+                />
+                <h3 className="text-base font-semibold tracking-[-0.015em]">
+                  {feature.title}
+                </h3>
+              </div>
+              <p className="mt-2 text-sm leading-[1.55] text-muted-light">
+                {feature.description}
+              </p>
             </div>
-            <p className="mt-2 text-sm leading-[1.55] text-muted-light">
-              {feature.description}
-            </p>
           </div>
         ))}
       </div>

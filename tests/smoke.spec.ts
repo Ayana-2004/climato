@@ -134,6 +134,7 @@ test.describe("Climato landing page", () => {
     await page.goto("/");
     for (const card of [
       page.locator("#why article").first(),
+      page.locator("#features h3").first().locator("xpath=../.."),
       page.locator('[aria-labelledby="answer-snippets"] article').first(),
       page.locator('img[alt^="Climato mascot lineup"]').locator("xpath=.."),
     ]) {
